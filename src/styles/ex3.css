@@ -1,0 +1,12 @@
+.magasin{
+    background-color: red;
+    height: 500px;
+    width: 500px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+.cadreJaune{
+    background-color: yellow;
+    width: 350px;
+    margin-left: 50px;
+}
