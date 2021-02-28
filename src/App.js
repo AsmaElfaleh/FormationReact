@@ -4,6 +4,7 @@ import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Ex2 from './pages/ex2';
 import Ex3 from './pages/ex3';
 import Ex4 from './pages/ex4';
+import Ex5 from './pages/ex5';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
             <li>
               <Link to="/ex4">Exercice 4</Link>
             </li>
+            <li>
+              <Link to="/ex5">Exercice 5</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -32,6 +36,9 @@ function App() {
         </Route>
         <Route path="/ex4">
           <Ex4 />
+        </Route>
+        <Route path="/ex5">
+          <Ex5 />
         </Route>
       </Switch>
     </Router>
