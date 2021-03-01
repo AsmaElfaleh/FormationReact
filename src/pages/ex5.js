@@ -20,6 +20,8 @@ export default class Ex5 extends React.Component {
                 <option value="onfocus">Form events - OnFocus</option>
                 <option value="oninput">Form Events - OnInput</option>
                 <option value="oninvalid">Form events - OnInvalid</option>
+                <option value="onsubmit">Form Events - OnSubmit</option>
+                <option value="onreset">Form Events - OnReset</option>
             </select>
             <EventTest event={this.state.event} />
         </div>

@@ -41,7 +41,40 @@ export default class EventTest extends React.Component {
                     <input type="submit" value="Submit this form" />
                 </form>
             </div>
+        } else if(this.props.event === "onsubmit") {
+            jsx=<div>
+                <h3>{this.props.event}</h3>
+                <span>The onsubmit attribute fires when a form is submitted.</span>
+                <form onSubmit={(event) => { console.log(event)} } method="get">
+                    <label for="textInput">My Text</label>
+                    <input type="text" name="textInput" id="textInput"/>
+                    <label for="checkboxInput">My checkbox</label>
+                    <input type="checkbox" name="checkboxInput" id="checkboxInput" />
+                    <select name="selectInput">
+                        <option value="oui">Yes</option>
+                        <option value="non">No</option>
+                    </select>
+                    <input type="submit" />
+                </form>
+            </div>
         }
+        else if(this.props.event === "onreset") {
+        jsx=<div>
+            <h3>{this.props.event}</h3>
+            <span>The onsubmit attribute fires when a form is submitted.</span>
+            <form onReset={() => alert('this form was reset')}>
+                <label for="textInput">My Text</label>
+                <input type="text" name="textInput" id="textInput"/>
+                <label for="checkboxInput">My checkbox</label>
+                <input type="checkbox" name="checkboxInput" id="checkboxInput" />
+                <select name="selectInput">
+                    <option value="oui">Yes</option>
+                    <option value="non">No</option>
+                </select>
+                <input type="reset" />
+            </form>
+        </div>
+    }
         return(
             <div>
                 {jsx}
