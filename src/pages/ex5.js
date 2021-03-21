@@ -22,6 +22,14 @@ export default class Ex5 extends React.Component {
                 <option value="oninvalid">Form events - OnInvalid</option>
                 <option value="onsubmit">Form Events - OnSubmit</option>
                 <option value="onreset">Form Events - OnReset</option>
+                <option value="onsearch">Form Events - OnSearch</option>
+                <option value="onselect">Form Events - OnSelect</option>
+                <option value="onkeydown">Keyboard Events - OnKeyDown</option>
+                <option value="onkeyup">Keyboard Events - OnKeyUp</option>
+                <option value="onclick">Mouse Events - OnClick</option>
+                <option value="ondbclick">Mouse Events - OnDblClick</option>
+                <option value="onmousedown">Mouse Events - OnMouseDown and OnMouseUp</option>
+                <option value="onmouseover">Mouse Events - OnMouseOver and OnMouseOut</option>
             </select>
             <EventTest event={this.state.event} />
         </div>

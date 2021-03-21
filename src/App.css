@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+.rectangle{
+  width: 150px;
+  height: 150px;
+  border: solid 5px black;
+}
+
+.over{
+  font-size: large;
+  color: red;
+  text-align: center;
+}
+.out{
+  font-size: small;
+  color:green;
+  text-align: left;
+}

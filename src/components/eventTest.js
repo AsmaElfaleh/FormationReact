@@ -5,8 +5,15 @@ export default class EventTest extends React.Component {
     constructor(props){
         super(props);
         this.state= {
-            value: ""
+            value: "",
+            color: "",
+            text: "Click me !!",
+            color2:'black',
+            class:'out'
         }
+    }
+    onSearchFunction(event){
+        alert(`you search this value ${event.target.value}`);
     }
 
     render() {
@@ -74,7 +81,68 @@ export default class EventTest extends React.Component {
                 <input type="reset" />
             </form>
         </div>
-    }
+        }else if(this.props.event === "onsearch") {
+           jsx=<div>
+                <h3>{this.props.event}</h3>
+                <span>The onsearch attribute fires when a user presses the "ENTER" key or clicks the "x" button in an input element with type="search".</span> 
+                <input type="search" name="onSearchInput"  ref={element=>(element||{}).onsearch=this.onSearchFunction} />
+            </div>
+           
+        }else if(this.props.event === "onselect") {
+            jsx=<div>
+                 <h3>{this.props.event}</h3>
+                 <span>The onselect attribute fires after some text has been selected in an element.</span> 
+                 <input type="text" name="onSelectInput" value="some text to be selected" onSelect={(event) => alert('this texte was selected:'+event.target.value)} />
+             </div>
+            
+         
+        }else if(this.props.event === "onkeydown") {
+            jsx=<div>
+                 <h3>{this.props.event}</h3>
+                 <span>The onkeydown attribute fires when the user is pressing a key (on the keyboard).</span> 
+                 <input type="text" name="onSelectInput"  onKeyDown={() => alert('you pressed a key..')} />
+             </div>
+            
+         }else if(this.props.event === "onkeyup") {
+            jsx=<div>
+                 <h3>{this.props.event}</h3>
+                 <span>The onkeyup attribute fires when the user releases a key (on the keyboard).</span> 
+                 <input type="text" name="onSelectInput"  onKeyUp={() => alert('you released a key..')} />
+             </div>
+         }else if(this.props.event === "onclick"){
+             jsx=<div>
+                 <h3>{this.props.event}</h3>
+                 <span>The onclick attribute fires on a mouse click on the element.</span>
+                 <div style={{background: this.state.color}} className="rectangle" onClick={() => this.setState({color: "red", text: "Wow, you clicked me !!"})}>
+                     {this.state.text}
+                 </div>
+             </div>
+         }else if(this.props.event === "ondbclick"){
+            jsx=<div>
+                <h3>{this.props.event}</h3>
+                <span>The ondblclick attribute fires on a mouse double-click on the element.</span>
+                <p style={{background: this.state.color2, color: 'white'}}  onDoubleClick={() => this.setState({color2: "red" })}>
+                    This text : double click me to change to color
+                </p>
+            </div>
+        }else if(this.props.event === "onmousedown"){
+            jsx=<div>
+                <h3>{this.props.event}</h3>
+                <span>The onmousedown attribute fires when a mouse button is pressed down on the element.</span>
+                <p style={{color: this.state.color3}}  onMouseDown={() => this.setState({color3: "red" })} onMouseUp={() => this.setState({color3: "green" })}>
+                    This text : Click this text !!
+                </p>
+            </div>
+        }else if(this.props.event === "onmouseover"){
+            jsx=<div>
+                <h3>{this.props.event}</h3>
+                <span>The onmouseover attribute fires when the mouse pointer moves over an element.</span>
+                <span>The onmouseout attribute fires when the mouse pointer moves out of an element.</span>
+                <p className={this.state.class}  onMouseOut={() => this.setState({class: "out" })} onMouseOver={() => this.setState({class: "over" })}>
+                    This text : Check this text !!
+                </p>
+            </div>
+        }
         return(
             <div>
                 {jsx}
