@@ -5,6 +5,7 @@ import Ex2 from './pages/ex2';
 import Ex3 from './pages/ex3';
 import Ex4 from './pages/ex4';
 import Ex5 from './pages/ex5';
+import Ex6 from './pages/ex6';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             <li>
               <Link to="/ex5">Exercice 5</Link>
             </li>
+            <li>
+              <Link to="/ex6">Exercice 6</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -39,6 +43,9 @@ function App() {
         </Route>
         <Route path="/ex5">
           <Ex5 />
+        </Route>
+        <Route path="/ex6">
+          <Ex6 />
         </Route>
       </Switch>
     </Router>
