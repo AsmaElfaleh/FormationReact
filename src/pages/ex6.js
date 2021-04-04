@@ -2,23 +2,51 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { FormControl, FormHelperText, Grid, Input, InputLabel, InputAdornment, TextField, RadioGroup, Radio, FormLabel, FormControlLabel } from '@material-ui/core';
+import { FormControl, FormHelperText, Grid, Input, InputLabel, InputAdornment, TextField, RadioGroup, Radio, FormLabel, FormControlLabel, Button } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import LocalPostOfficeIcon from '@material-ui/icons/LocalPostOffice';
 import LanguageIcon from '@material-ui/icons/Language';
+import AlternateEmail from '@material-ui/icons/AlternateEmail';
 import MuiPhoneInput from 'material-ui-phone-number';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    backgroundColor: '#cfe8fc', 
+    height: '100vh', 
+    border: '1px solid black', 
+    flexGrow: 1
+  },
+  field: {
+    margin: 'auto'
+  },
+  section: {
+    border: '1px solid black',
+    marginTop: '20px',
+    padding:  theme.spacing(2)
+  },
+  segmentActions: {
+    margin: 'auto',
+    width: '30%',
+    float: 'right'
+  }
+}));
 
 function Ex6() {
+  const classes = useStyles();
     return(
     <React.Fragment>
       <CssBaseline />
-      <Container fixed style={{ backgroundColor: '#cfe8fc', height: '100vh', border: '1px solid black', marginBottom: '50px'}}>
-        <Typography component="h1" style={{ textAlign: 'center', fontSize: 60}}> Inscription </Typography>
+      <Container fixed className={classes.root}>
+        <Typography component="h1"> Inscription </Typography>
         <form>
-            <Grid container spacing={8}>
-                <Grid item>
+          <Grid container className={classes.section}>
+          <Typography variant='subtitle1'>Données personnelles</Typography>
+          <Grid container spacing={8}>
+                <Grid item className={classes.field}>
                     <FormControl>
                         <InputLabel htmlFor='nom'>Nom</InputLabel>
                         <Input id='nom'
@@ -30,7 +58,7 @@ function Ex6() {
                         <FormHelperText>Ecrivez votre nom de famille</FormHelperText>
                     </FormControl>
                 </Grid>
-                <Grid item>
+                <Grid item className={classes.field}>
                     <FormControl>
                         <InputLabel htmlFor='prenom'>Prénom</InputLabel>
                         <Input id='prenom'
@@ -49,7 +77,7 @@ function Ex6() {
                         <FormHelperText>Choisissez votre date de naissance</FormHelperText>
                 </FormControl>
             </Grid>
-            <Grid container>
+            <Grid container className={classes.field}>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Etat civil</FormLabel>
                 <RadioGroup row aria-label="Etat civil" name="gender1">
@@ -60,10 +88,12 @@ function Ex6() {
                 </RadioGroup>
                 </FormControl>
             </Grid>
-            <Grid container>
-                <Typography variant='subtitle'>Adresse</Typography>
+          </Grid>
+            
+            <Grid container className={classes.section}>
+                <Typography variant='subtitle1'>Adresse</Typography>
                 <Grid container spacing={8}>
-                    <Grid item>
+                    <Grid item className={classes.field}>
                     <FormControl>
                         <InputLabel htmlFor='rue'>Rue</InputLabel>
                         <Input id='rue'
@@ -74,7 +104,7 @@ function Ex6() {
                           } />
                     </FormControl>
                     </Grid>
-                    <Grid item>
+                    <Grid item className={classes.field}>
                     <FormControl>
                         <InputLabel htmlFor='ville'>Ville</InputLabel>
                         <Input id='ville'
@@ -87,7 +117,7 @@ function Ex6() {
                     </Grid>
                 </Grid>
                 <Grid container spacing={8}>
-                    <Grid item>
+                    <Grid item className={classes.field}>
                     <FormControl>
                         <InputLabel htmlFor='code-postal'>Code postal</InputLabel>
                         <Input id='code-postal'
@@ -98,7 +128,7 @@ function Ex6() {
                           } />
                     </FormControl>
                     </Grid>
-                    <Grid item>
+                    <Grid item className={classes.field}>
                     <FormControl>
                         <InputLabel htmlFor='pays'>Pays</InputLabel>
                         <Input id='pays'
@@ -110,9 +140,43 @@ function Ex6() {
                     </FormControl>
                     </Grid>
                 </Grid>
-                <Grid container>
+                <Grid container className={classes.field}>
                 <MuiPhoneInput regions={['america', 'europe', 'asia', 'oceania', 'africa']} defaultCountry='ca'/>
                 </Grid>
+                </Grid>
+                <Grid container className={classes.section}>
+                <Typography variant='subtitle1'>Identification</Typography>
+                <Grid container className={classes.field}>
+                    <FormControl>
+                        <InputLabel htmlFor='mail'>Addresse courriel</InputLabel>
+                        <Input id='mail'
+                            startAdornment={
+                            <InputAdornment position="start">
+                              <AlternateEmail />
+                            </InputAdornment>
+                          } />
+                    </FormControl>
+                </Grid>
+                <Grid container spacing={8}>
+                    <Grid item className={classes.field}>
+                    <FormControl>
+                        <InputLabel htmlFor='pwd1'>Mot de passe</InputLabel>
+                        <Input id='pwd1'
+                           type='password'/>
+                    </FormControl>
+                    </Grid>
+                    <Grid item className={classes.field}>
+                    <FormControl>
+                        <InputLabel htmlFor='pwd2'>Confirmer mot de passe</InputLabel>
+                        <Input id='pwd2'
+                           type='password'/>
+                    </FormControl>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid container className={classes.segmentActions}>
+                <Button variant='contained' color='primary'>Confirmer</Button>
+                <Button variant='contained' color='secondary' >Annuler</Button>
             </Grid>
         </form>
         
