@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { FormControl, FormHelperText, Grid, Input, InputLabel, InputAdornment, TextField, RadioGroup, Radio, FormLabel, FormControlLabel, Button } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -23,10 +23,11 @@ const useStyles = makeStyles((theme) => ({
       float: 'right'
     }
 }));
-  
 
+export default function Inscription({ setEditModeProps, setDataProps }) {
+   const [data, setData] = useState({
 
-export default function Inscription({ setEditModeProps, setDataProps, data }) {
+   })
     const classes = useStyles();
         return(
               <Grid container>
@@ -50,7 +51,6 @@ export default function Inscription({ setEditModeProps, setDataProps, data }) {
                       </Grid>
                       <Grid item className={classes.field}>
                           <FormControl>
-                              
                               <InputLabel htmlFor='prenom'>Prénom</InputLabel>
                               <Input id='prenom'
                                   onChange={(event) => setDataProps({ surname: event.target.value, name: data.name})}
